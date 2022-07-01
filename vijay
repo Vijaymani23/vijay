@@ -1,0 +1,13 @@
+import sqlite3
+connection = sqlite3.connect('shows.db')
+cursor = connection.cursor()
+cursor.execute('''CREATE TABLE IF NOT EXISTS Movies (MovieName TEXT,Actor TEXT,Actress TEXT, Year INT,Director TEXT)''')
+INSERT INTO Movies (MovieName,Actor,Actress,Year,Director)VALUES ('Ghilli', 'Vijay', 'Trisha', 2010,'Vetri maran' );
+INSERT INTO Movies (MovieName,Actor,Actress,Year,Director)VALUES ('Pushpa', 'Allu Arjun', 'Rashmika', 2022,'Dhilip' );
+INSERT INTO Movies (MovieName,Actor,Actress,Year,Director)VALUES ('Iru Mugan', 'Chiyan Vikram', 'Nayanthara', 2018,'Muskin' );
+INSERT INTO Movies (MovieName,Actor,Actress,Year,Director)VALUES ('Maari', 'Dhanush', 'Sai Pallavi', 2018,'Atlee' );
+cursor.execute('''SELECT * from Movies''')
+result = cursor.fetchone();
+print(result)
+connection.commit()
+connection.close()
